@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ONE-X IPHONE | iPhones lacrados</title>
+<meta name="description" content="iPhones lacrados com procedência e atendimento direto pelo WhatsApp. Do iPhone 11 ao iPhone 18.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--soft:#f5f5f7;--ink:#1d1d1f;--mute:#6e6e73;--line:#d2d2d7;--blue:#0071e3;--black:#000}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:60px}
+body{font-family:Inter,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+
+.nav{position:fixed;inset:0 0 auto;height:52px;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 max(20px,5vw);background:rgba(0,0,0,.8);backdrop-filter:saturate(180%) blur(20px);color:#f5f5f7}
+.logo{font-weight:700;letter-spacing:.04em;font-size:17px}
+.logo span{font-weight:300;opacity:.7}
+.nav nav{display:flex;gap:32px;font-size:13px;opacity:.85}
+.nav nav a:hover{opacity:.6}
+.icon-btn{padding:8px;border-radius:50%}
+.icon-btn:hover{background:rgba(255,255,255,.12)}
+
+.search{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.92);backdrop-filter:blur(24px);display:flex;justify-content:center;padding:14vh 20px 0;color:#fff}
+.search[hidden]{display:none}
+.search-close{position:absolute;top:18px;right:max(20px,5vw);font-size:22px;opacity:.7}
+.search-box{width:min(640px,100%)}
+.search-box input{width:100%;background:none;border:0;border-bottom:1px solid #555;color:#fff;font-size:clamp(22px,4vw,32px);font-weight:300;padding:12px 0;outline:0}
+.search-box input:focus{border-color:#fff}
+.search-box ul{list-style:none;margin-top:18px}
+.search-box li button{width:100%;text-align:left;padding:14px 4px;font-size:18px;border-bottom:1px solid #2a2a2c;display:flex;justify-content:space-between}
+.search-box li button:hover{color:#2997ff}
+.search-box li small{color:#86868b}
+
+.hero{background:#000;color:#f5f5f7;text-align:center;padding:130px 20px 0;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+.hero-kicker{font-size:17px;color:#86868b;margin-bottom:14px}
+.hero h1{font-size:clamp(36px,7vw,80px);font-weight:700;letter-spacing:-.03em;line-height:1.05}
+.hero-sub{margin-top:20px;font-size:clamp(17px,2vw,22px);color:#a1a1a6;max-width:560px}
+.hero-actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;justify-content:center}
+.hero-phone{margin-top:56px;animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(60px)}}
+
+.btn{display:inline-block;padding:13px 26px;border-radius:980px;font-size:16px;font-weight:500;transition:.25s}
+.btn-light{background:#fff;color:#000}.btn-light:hover{background:#e8e8ed}
+.btn-ghost{border:1px solid #6e6e73;color:#f5f5f7}.btn-ghost:hover{background:#ffffff1a}
+.btn-dark{background:var(--ink);color:#fff;text-align:center;display:block}.btn-dark:hover{background:#000}
+
+.phone{--c:#1d1d1f;position:relative;width:130px;aspect-ratio:9/19;border-radius:26px;background:linear-gradient(145deg,color-mix(in srgb,var(--c) 70%,#fff) 0%,var(--c) 45%,color-mix(in srgb,var(--c) 70%,#000) 100%);box-shadow:inset 0 0 0 3px rgba(255,255,255,.22),0 24px 40px -18px rgba(0,0,0,.45);transition:.4s}
+.phone::before{content:"";position:absolute;inset:6px;border-radius:21px;background:#000;opacity:.9}
+.phone i{position:absolute;top:13px;left:50%;width:34%;height:9px;transform:translateX(-50%);border-radius:9px;background:#000;z-index:2;box-shadow:0 0 0 1px #222}
+.phone b{position:absolute;right:-4px;top:22%;width:3px;height:12%;border-radius:2px;background:var(--c);filter:brightness(.8)}
+.phone.big{width:min(260px,52vw);border-radius:44px}
+.phone.big::before{border-radius:37px;background:linear-gradient(160deg,#1b1b2f,#2a5fa8 55%,#c06c84)}
+.phone.big i{top:18px;height:14px}
+.phone img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:3}
+
+.catalog{padding:100px max(20px,5vw);background:var(--soft);text-align:center}
+.catalog h2,.why h2,.cta h2{font-size:clamp(30px,5vw,52px);font-weight:700;letter-spacing:-.025em}
+.section-sub{color:var(--mute);margin:12px auto 32px;font-size:18px;max-width:560px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:40px}
+.chip{padding:8px 18px;border-radius:980px;border:1px solid var(--line);background:#fff;font-size:14px;transition:.2s}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;max-width:1200px;margin:auto}
+.card{background:#fff;border-radius:24px;padding:36px 20px 28px;display:flex;flex-direction:column;align-items:center;gap:8px;transition:transform .3s,box-shadow .3s;text-align:center}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -20px rgba(0,0,0,.25)}
+.card .phone{margin-bottom:18px}
+.card h3{font-size:21px;font-weight:600}
+.card .chip-spec{color:var(--mute);font-size:14px}
+.card .from{margin-top:6px;font-size:15px}
+.card .buy{margin-top:14px;color:var(--blue);font-weight:500;font-size:15px}
+.empty{margin-top:30px;color:var(--mute)}
+
+.why{padding:100px max(20px,5vw);text-align:center}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:48px;max-width:1000px;margin:56px auto 0;text-align:left}
+.why h3{font-size:22px;margin-bottom:10px}
+.why p{color:var(--mute);line-height:1.6}
+
+.cta{background:#000;color:#f5f5f7;text-align:center;padding:100px 20px}
+.cta p{color:#a1a1a6;margin:14px 0 30px;font-size:19px}
+footer{background:#000;color:#86868b;font-size:12px;padding:28px max(20px,5vw);display:flex;flex-direction:column;gap:6px;border-top:1px solid #2a2a2c}
+footer strong{color:#f5f5f7;letter-spacing:.04em}
+
+.modal{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:16px}
+.modal[hidden]{display:none}
+.modal-card{position:relative;background:#fff;border-radius:28px;width:min(900px,100%);max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1fr;animation:pop .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{opacity:0;transform:scale(.95)}}
+.modal-close{position:absolute;top:16px;right:18px;width:34px;height:34px;border-radius:50%;background:var(--soft);z-index:5}
+.modal-visual{background:var(--soft);display:flex;align-items:center;justify-content:center;padding:48px}
+.modal-visual .phone{width:min(210px,45vw)}
+.modal-info{padding:44px 36px;display:flex;flex-direction:column;gap:10px}
+.modal-info h3{font-size:30px;letter-spacing:-.02em}
+.specs{color:var(--mute);font-size:14px;line-height:1.6}
+.price{font-size:26px;font-weight:600;margin:6px 0 10px}
+.label{font-size:14px;font-weight:500;margin-top:8px}
+.swatches,.storages{display:flex;gap:10px;flex-wrap:wrap}
+.sw{width:30px;height:30px;border-radius:50%;border:1px solid #0003;box-shadow:inset 0 0 0 2px #fff}
+.sw.on{outline:2px solid var(--blue);outline-offset:2px}
+.st{padding:9px 16px;border:1px solid var(--line);border-radius:12px;font-size:14px}
+.st.on{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue)}
+.wa{margin-top:18px}
+.note{font-size:12px;color:var(--mute);line-height:1.5}
+
+@media(max-width:760px){
+  .nav nav{display:none}
+  .modal-card{grid-template-columns:1fr}
+  .modal-visual{padding:36px 0 24px}
+  .modal-info{padding:24px 22px 28px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a href="#topo" class="logo">ONE-X <span>IPHONE</span></a>
+  <nav>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#diferenciais">Diferenciais</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <button class="icon-btn" id="openSearch" aria-label="Pesquisar iPhone">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+  </button>
+</header>
+
+<div class="search" id="search" hidden>
+  <button class="search-close" id="closeSearch" aria-label="Fechar">✕</button>
+  <div class="search-box">
+    <input id="searchInput" type="search" placeholder="Pesquise o seu iPhone (ex.: 15 Pro)" autocomplete="off">
+    <ul id="suggestions"></ul>
+  </div>
+</div>
+
+<main id="topo">
+  <section class="hero">
+    <p class="hero-kicker">iPhones 100% lacrados</p>
+    <h1>O iPhone que você quer.<br>Do jeito que saiu da caixa.</h1>
+    <p class="hero-sub">Aparelhos novos, lacrados e com atendimento direto pelo WhatsApp.</p>
+    <div class="hero-actions">
+      <a href="#catalogo" class="btn btn-light">Ver catálogo</a>
+      <a href="#" class="btn btn-ghost" data-wa-general>Falar com a loja</a>
+    </div>
+    <div class="hero-phone" aria-hidden="true"><div class="phone big"><i></i><b></b></div></div>
+  </section>
+
+  <section class="catalog" id="catalogo">
+    <h2>Escolha o seu iPhone</h2>
+    <p class="section-sub">Do iPhone 11 ao iPhone 18. Toque em um modelo para ver detalhes e comprar.</p>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>Nenhum iPhone encontrado. Tente outro nome ou fale com a loja.</p>
+  </section>
+
+  <section class="why" id="diferenciais">
+    <h2>Por que comprar na ONE-X</h2>
+    <div class="why-grid">
+      <div><h3>Lacrado de verdade</h3><p>Cada aparelho chega na caixa original, com lacre de fábrica intacto.</p></div>
+      <div><h3>Atendimento direto</h3><p>Você conversa com a loja pelo WhatsApp, tira dúvidas e fecha sem burocracia.</p></div>
+      <div><h3>Compra com segurança</h3><p>Transparência no preço, na cor e na capacidade, antes de qualquer pagamento.</p></div>
+    </div>
+  </section>
+
+  <section class="cta" id="contato">
+    <h2>Não achou o que procurava?</h2>
+    <p>Fale com a gente. Buscamos o modelo, a cor e a capacidade que você quer.</p>
+    <a href="#" class="btn btn-light" data-wa-general>Chamar no WhatsApp</a>
+  </section>
+</main>
+
+<footer>
+  <strong>ONE-X IPHONE</strong>
+  <span>© <span id="year"></span> Todos os direitos reservados. Apple e iPhone são marcas da Apple Inc. Esta loja não é afiliada à Apple.</span>
+</footer>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <button class="modal-close" id="closeModal" aria-label="Fechar">✕</button>
+    <div class="modal-visual" id="mVisual"></div>
+    <div class="modal-info">
+      <h3 id="mName"></h3>
+      <p class="specs" id="mSpecs"></p>
+      <p class="price" id="mPrice"></p>
+      <p class="label">Cor: <span id="mColorName"></span></p>
+      <div class="swatches" id="mColors"></div>
+      <p class="label">Capacidade</p>
+      <div class="storages" id="mStorages"></div>
+      <a class="btn btn-dark wa" id="mWa" target="_blank" rel="noopener">Comprar pelo WhatsApp</a>
+      <p class="note">Aparelho novo e lacrado. Valores e disponibilidade confirmados no atendimento.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ====== CONFIGURAÇÕES (edite aqui) ====== */
+const WHATSAPP = "5583993303426"; // DDI + DDD + número, só dígitos
+const LOJA = "ONE-X IPHONE";
+
+/* Para adicionar modelos: inclua uma linha em MODELOS.
+   [geração, nome, preço base (R$), chip, tela, câmera, [capacidades], foto opcional "img/arquivo.png"] */
+const MODELOS = [
+ [11,"iPhone 11",2999,"A13 Bionic","6,1\"","Dupla 12 MP",[64,128,256]],
+ [11,"iPhone 11 Pro",3699,"A13 Bionic","5,8\"","Tripla 12 MP",[64,256,512]],
+ [11,"iPhone 11 Pro Max",3999,"A13 Bionic","6,5\"","Tripla 12 MP",[64,256,512]],
+ [12,"iPhone 12",3399,"A14 Bionic","6,1\"","Dupla 12 MP",[64,128,256]],
+ [12,"iPhone 12 Pro",4399,"A14 Bionic","6,1\"","Tripla 12 MP + LiDAR",[128,256,512]],
+ [12,"iPhone 12 Pro Max",4899,"A14 Bionic","6,7\"","Tripla 12 MP + LiDAR",[128,256,512]],
+ [13,"iPhone 13",3799,"A15 Bionic","6,1\"","Dupla 12 MP",[128,256,512]],
+ [13,"iPhone 13 Pro",5199,"A15 Bionic","6,1\" ProMotion","Tripla 12 MP",[128,256,512,1024]],
+ [13,"iPhone 13 Pro Max",5699,"A15 Bionic","6,7\" ProMotion","Tripla 12 MP",[128,256,512,1024]],
+ [14,"iPhone 14",4199,"A15 Bionic","6,1\"","Dupla 12 MP",[128,256,512]],
+ [14,"iPhone 14 Plus",4699,"A15 Bionic","6,7\"","Dupla 12 MP",[128,256,512]],
+ [14,"iPhone 14 Pro",5799,"A16 Bionic","6,1\" ProMotion","Tripla 48 MP",[128,256,512,1024]],
+ [14,"iPhone 14 Pro Max",6399,"A16 Bionic","6,7\" ProMotion","Tripla 48 MP",[128,256,512,1024]],
+ [15,"iPhone 15",4799,"A16 Bionic","6,1\"","Dupla 48 MP",[128,256,512]],
+ [15,"iPhone 15 Plus",5399,"A16 Bionic","6,7\"","Dupla 48 MP",[128,256,512]],
+ [15,"iPhone 15 Pro",6499,"A17 Pro","6,1\" ProMotion","Tripla 48 MP",[128,256,512,1024]],
+ [15,"iPhone 15 Pro Max",7499,"A17 Pro","6,7\" ProMotion","Tripla 48 MP",[256,512,1024]],
+ [16,"iPhone 16",5499,"A18","6,1\"","Dupla 48 MP",[128,256,512]],
+ [16,"iPhone 16 Plus",6199,"A18","6,7\"","Dupla 48 MP",[128,256,512]],
+ [16,"iPhone 16 Pro",7499,"A18 Pro","6,3\" ProMotion","Tripla 48 MP",[128,256,512,1024]],
+ [16,"iPhone 16 Pro Max",8499,"A18 Pro","6,9\" ProMotion","Tripla 48 MP",[256,512,1024]],
+ [17,"iPhone 17",6299,"A19","6,3\" ProMotion","Dupla 48 MP",[256,512]],
+ [17,"iPhone 17 Pro",8999,"A19 Pro","6,3\" ProMotion","Tripla 48 MP",[256,512,1024]],
+ [17,"iPhone 17 Pro Max",9999,"A19 Pro","6,9\" ProMotion","Tripla 48 MP",[256,512,1024,2048]],
+ [18,"iPhone 18 Pro",9499,"A20 Pro","6,3\" ProMotion","Tripla 48 MP",[256,512,1024]],
+ [18,"iPhone 18 Pro Max",10499,"A20 Pro","6,9\" ProMotion","Tripla 48 MP",[256,512,1024,2048]],
+];
+const CORES_PRO=[["Preto","#2b2b2d"],["Prata","#e3e4e6"],["Dourado","#d9c7a7"],["Azul","#3f4a5a"]];
+const CORES_BASE=[["Preto","#1d1d1f"],["Branco","#f5f5f0"],["Azul","#a9c4e0"],["Rosa","#f2d4d7"]];
+
+const P = MODELOS.map(([g,n,p,chip,tela,cam,st,img],i)=>({
+  id:i,g,n,p,chip,tela,cam,st,img,cores:/Pro/.test(n)?CORES_PRO:CORES_BASE
+}));
+const $ = s => document.querySelector(s);
+const brl = v => v.toLocaleString("pt-BR",{style:"currency",currency:"BRL",minimumFractionDigits:0});
+const cap = c => c>=1024 ? c/1024+" TB" : c+" GB";
+const preco = (m,si) => m.p + si*500; // acréscimo de R$ 500 por degrau de capacidade
+const phone = (m,c) => `<div class="phone" style="--c:${c}"><i></i><b></b>${m.img?`<img src="${m.img}" alt="${m.n}">`:""}</div>`;
+const wa = txt => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`;
+
+/* ---- Catálogo ---- */
+let filtro = "todos", busca = "";
+function filtros(){
+  const gens = [...new Set(P.map(m=>m.g))];
+  $("#filters").innerHTML = ["todos",...gens].map(g=>
+    `<button class="chip ${g==filtro?"on":""}" data-g="${g}">${g=="todos"?"Todos":"iPhone "+g}</button>`).join("");
+}
+function grade(){
+  const q = busca.trim().toLowerCase();
+  const lista = P.filter(m=>(filtro=="todos"||m.g==filtro)&&(!q||m.n.toLowerCase().includes(q)||String(m.g)===q));
+  $("#grid").innerHTML = lista.map(m=>`
+    <article class="card" data-id="${m.id}" tabindex="0" role="button" aria-label="${m.n}">
+      ${phone(m,m.cores[0][1])}
+      <h3>${m.n}</h3>
+      <p class="chip-spec">${m.chip} · ${m.tela}</p>
+      <p class="from">A partir de <strong>${brl(m.p)}</strong></p>
+      <span class="buy">Ver detalhes</span>
+    </article>`).join("");
+  $("#empty").hidden = lista.length>0;
+}
+$("#filters").addEventListener("click",e=>{
+  const b=e.target.closest(".chip"); if(!b) return;
+  filtro=b.dataset.g; filtros(); grade();
+});
+$("#grid").addEventListener("click",e=>{const c=e.target.closest(".card"); if(c) abrir(P[c.dataset.id]);});
+$("#grid").addEventListener("keydown",e=>{if(e.key==="Enter"){const c=e.target.closest(".card"); if(c) abrir(P[c.dataset.id]);}});
+
+/* ---- Modal do produto ---- */
+let sel = {m:null,ci:0,si:0};
+function abrir(m){
+  sel = {m,ci:0,si:0};
+  $("#mName").textContent = m.n;
+  $("#mSpecs").innerHTML = `Chip ${m.chip}<br>Tela ${m.tela}<br>Câmera ${m.cam}`;
+  $("#modal").hidden = false; document.body.style.overflow="hidden";
+  atualizar(true);
+}
+function atualizar(refazer){
+  const {m,ci,si}=sel, cor=m.cores[ci];
+  $("#mVisual").innerHTML = phone(m,cor[1]);
+  $("#mColorName").textContent = cor[0];
+  $("#mPrice").textContent = brl(preco(m,si));
+  $("#mColors").innerHTML = m.cores.map((c,i)=>`<button class="sw ${i==ci?"on":""}" data-ci="${i}" style="background:${c[1]}" aria-label="${c[0]}"></button>`).join("");
+  $("#mStorages").innerHTML = m.st.map((s,i)=>`<button class="st ${i==si?"on":""}" data-si="${i}">${cap(s)}</button>`).join("");
+  $("#mWa").href = wa(`Olá, ${LOJA}! Tenho interesse no ${m.n} ${cap(m.st[si])} na cor ${cor[0]} (lacrado), no valor de ${brl(preco(m,si))}. Ainda está disponível?`);
+}
+$("#mColors").addEventListener("click",e=>{const b=e.target.closest(".sw"); if(b){sel.ci=+b.dataset.ci; atualizar();}});
+$("#mStorages").addEventListener("click",e=>{const b=e.target.closest(".st"); if(b){sel.si=+b.dataset.si; atualizar();}});
+function fechar(){ $("#modal").hidden=true; document.body.style.overflow=""; }
+$("#closeModal").onclick = fechar;
+$("#modal").addEventListener("click",e=>{if(e.target.id==="modal") fechar();});
+
+/* ---- Pesquisa (lupa) ---- */
+const overlay=$("#search"), input=$("#searchInput"), sug=$("#suggestions");
+function abrirBusca(){overlay.hidden=false; input.value=""; sug.innerHTML=""; input.focus();}
+function fecharBusca(){overlay.hidden=true;}
+$("#openSearch").onclick=abrirBusca; $("#closeSearch").onclick=fecharBusca;
+input.addEventListener("input",()=>{
+  const q=input.value.trim().toLowerCase();
+  const r = q ? P.filter(m=>m.n.toLowerCase().includes(q)||String(m.g)===q).slice(0,6) : [];
+  sug.innerHTML = r.map(m=>`<li><button data-id="${m.id}">${m.n}<small>a partir de ${brl(m.p)}</small></button></li>`).join("")
+    || (q?`<li><small>Nenhum modelo encontrado.</small></li>`:"");
+});
+sug.addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  fecharBusca(); filtro="todos"; busca=""; filtros(); grade();
+  const m=P[b.dataset.id];
+  $("#catalogo").scrollIntoView();
+  abrir(m);
+});
+input.addEventListener("keydown",e=>{
+  if(e.key==="Enter"){
+    const first=sug.querySelector("button");
+    if(first) first.click();
+  }
+});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){fecharBusca(); fechar();}});
+
+/* ---- WhatsApp geral e extras ---- */
+document.querySelectorAll("[data-wa-general]").forEach(a=>{
+  a.href = wa(`Olá, ${LOJA}! Gostaria de saber mais sobre os iPhones lacrados disponíveis.`);
+  a.target="_blank"; a.rel="noopener";
+});
+$("#year").textContent = new Date().getFullYear();
+
+filtros(); grade();
+
+</script>
+</body>
+</html>
